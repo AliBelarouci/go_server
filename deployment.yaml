@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-go-server-deployment
+spec:
+  replicas: 9
+  selector:
+    matchLabels:
+      app: my-go-server
+  template:
+    metadata:
+      labels:
+        app: my-go-server
+    spec:
+      containers:
+      - name: my-go-server
+        image: alisoufnet/my-go-server:1.1.2
+        ports:
+        - containerPort: 3000
